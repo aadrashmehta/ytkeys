@@ -1,0 +1,132 @@
+
+.html5-video-player {
+  position: relative !important;
+}
+
+#yt-rgb-controls {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+#yt-rgb-controls.yt-rgb-visible {
+  opacity: 1;
+}
+
+.yt-rgb-seek-controls {
+  width: min(500px, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.yt-rgb-seek {
+  width: 58px;
+  height: 58px;
+  border: 1px solid rgb(255 255 255 / 28%);
+  border-radius: 50%;
+  background: rgb(20 20 20 / 72%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  backdrop-filter: blur(8px);
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.yt-rgb-seek:hover {
+  transform: scale(1.09);
+  background: rgb(45 45 45 / 90%);
+}
+
+.yt-rgb-symbol {
+  font-size: 25px;
+  line-height: 25px;
+}
+
+.yt-rgb-number {
+  font-size: 10px;
+  line-height: 12px;
+}
+
+#yt-rgb-ambient {
+  position: absolute;
+  inset: -2px;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 4px;
+  border: 3px solid transparent;
+  box-shadow:
+    0 0 12px 3px rgb(0 180 255 / 45%),
+    0 0 28px 8px rgb(150 0 255 / 25%),
+    inset 0 0 12px rgb(0 180 255 / 15%);
+  animation: yt-rgb-cycle 5s linear infinite;
+}
+
+#yt-rgb-ambient.yt-rgb-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  border-radius: 0;
+  border-width: 4px;
+  box-shadow:
+    0 0 20px 6px rgb(0 180 255 / 50%),
+    0 0 55px 12px rgb(150 0 255 / 30%),
+    inset 0 0 30px rgb(0 180 255 / 20%);
+}
+
+@keyframes yt-rgb-cycle {
+  0% {
+    filter: hue-rotate(0deg);
+    opacity: 0.75;
+  }
+  50% {
+    filter: hue-rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    filter: hue-rotate(360deg);
+    opacity: 0.75;
+  }
+}
+
+@media (max-width: 600px) {
+  .yt-rgb-seek-controls {
+    width: 200px;
+  }
+
+  .yt-rgb-seek {
+    width: 44px;
+    height: 44px;
+  }
+
+  .yt-rgb-symbol {
+    font-size: 21px;
+    line-height: 21px;
+  }
+
+  .yt-rgb-number {
+    font-size: 9px;
+    line-height: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #yt-rgb-controls,
+  .yt-rgb-seek,
+  #yt-rgb-ambient {
+    transition: none;
+    animation: none;
+  }
+}
