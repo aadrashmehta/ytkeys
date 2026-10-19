@@ -1,4 +1,4 @@
-# YouTube RGB Controls
+# YTKeys
 
 A lightweight Chrome extension that adds 10-second seek buttons and optional
 animated ambient lighting to the YouTube video player. It also lets you skip a
