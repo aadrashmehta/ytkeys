@@ -29,12 +29,17 @@ body {
   display: grid;
   place-items: center;
   flex-shrink: 0;
-
+  overflow: hidden;
   border-radius: 12px;
   background: linear-gradient(135deg, #8b5cf6, #ec4899);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 800;
+  box-shadow: 0 8px 22px rgba(139, 92, 246, 0.35);
+}
+
+.logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 h1 {
