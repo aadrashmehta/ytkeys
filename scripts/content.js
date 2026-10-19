@@ -252,7 +252,7 @@
       ".ytp-ad-skip-button-modern",
       ".ytp-skip-ad-button",
       "button[aria-label*='Skip ad' i]",
-      "button[aria-label*='Skip Ads' i]"
+      "[role='button'][aria-label*='Skip ad' i]"
     ];
 
     for (const selector of selectors) {
@@ -260,6 +260,24 @@
 
       for (const button of buttons) {
         if (isVisibleAndClickable(button)) return button;
+      }
+    }
+
+    const buttons = document.querySelectorAll("button, [role='button']");
+    for (const button of buttons) {
+      const label = (
+        button.getAttribute("aria-label") ||
+        button.textContent ||
+        ""
+      )
+        .replace(/\s+/g, " ")
+        .trim();
+
+      if (
+        /^skip\s+ads?$/i.test(label) &&
+        isVisibleAndClickable(button)
+      ) {
+        return button;
       }
     }
 

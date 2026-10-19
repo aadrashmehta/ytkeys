@@ -11,9 +11,10 @@ visible ad with the `S` key.
   away after a short period.
 - Toggle animated RGB-style ambient lighting around the player. The effect also
   follows the edges of the screen in fullscreen mode.
-- Press `S` to click a visible, enabled YouTube skip-ad button. The shortcut
+- Press `S` to click YouTube's visible, enabled skip-ad button. The shortcut
   does not activate while typing in a text field or when Ctrl, Alt, or
-  Command/Meta is held.
+  Command/Meta is held. It only works after YouTube makes an ad skippable;
+  it cannot skip ads for which YouTube does not show an enabled skip button.
 - Save settings automatically with Chrome's sync storage.
 - Respect the operating system's reduced-motion preference.
 
@@ -41,9 +42,9 @@ The extension popup has two settings:
 - **RGB ambient lighting** — enables or disables the animated glow. Video
   controls must also be enabled for the glow to appear.
 
-Both settings are enabled/disabled independently in the popup and saved
-automatically. The `S` skip-ad shortcut is available when a visible skip button
-is present; it is independent of these two settings.
+Both settings can be changed independently in the popup and are saved
+automatically. The `S` skip-ad shortcut is independent of these two settings
+and works only while YouTube displays an enabled skip button.
 
 ## Permissions and scope
 
